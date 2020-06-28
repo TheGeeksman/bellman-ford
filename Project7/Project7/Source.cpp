@@ -4,11 +4,18 @@
 #include <list>
 #include <utility>
 #include <iostream>
-
+#include "locale.h"
 using namespace ::std;
+
+
 
 void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex)
 {
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 	if (vertex == startVertex) {
 		cout << vertex;
 	}
@@ -80,6 +87,7 @@ int bellmanFord(
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	int vertices, edges, v1, v2, weight;
 
 	setlocale(LC_CTYPE, "Russian");
@@ -93,10 +101,10 @@ int main()
 	vector< list< pair<int, int> > > adjacencyList(vertices + 1);
 
 	cout << "Вводите данные в следующем формате: \n"
-		<< "Начальная вершина - нажмите Enter"
-		<< "Конечная вершина - нажмите Enter"
-		<< "Вес ребра - нажмите Enter"
-		<< "Повторите это действие для каждого ребра";
+		<< "Начальная вершина - нажмите Enter\n"
+		<< "Конечная вершина - нажмите Enter\n"
+		<< "Вес ребра - нажмите Enter\n"
+		<< "Повторите это действие для каждого ребра\n";
 
 	for (int i = 1; i <= edges; ++i) {
 		cin >> v1 >> v2 >> weight;
@@ -140,8 +148,8 @@ int main()
 
 	cout << "\n\nВершина    Кратчайший путь до вершины %d     Предыдущая вершина-\n", startVertex;
 	for (int i = 1; i <= vertices; ++i) {
-		cout << i << "\t"<< shortestDistances[i].first <<"\t\t\t\t"<<
-			shortestDistances[i].second <<"\n";
+		cout << i << "\t" << shortestDistances[i].first << "\t\t\t\t" <<
+			shortestDistances[i].second << "\n";
 	}
 
 	return 0;
