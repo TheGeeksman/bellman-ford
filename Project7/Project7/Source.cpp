@@ -9,6 +9,8 @@ using namespace ::std;
 
 void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex)
 {
+	setlocale(LC_ALL, "Russian");
+	
 	if (vertex == startVertex) {
 		cout << vertex;
 	}
@@ -81,6 +83,8 @@ int bellmanFord(
 int main()
 {
 	int vertices, edges, v1, v2, weight;
+
+	setlocale(LC_ALL, "Russian");
 
 	cout << "Введите количество вершин: -\n";
 	cin >> vertices;
