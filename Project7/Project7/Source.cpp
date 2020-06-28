@@ -82,15 +82,19 @@ int main()
 {
 	int vertices, edges, v1, v2, weight;
 
-	cout << "Enter the Number of Vertices -\n";
+	cout << "Введите количество вершин: -\n";
 	cin >> vertices;
 
-	cout << "Enter the Number of Edges -\n";
+	cout << "Введите количество ребер: -\n";
 	cin >> edges;
 
 	vector< list< pair<int, int> > > adjacencyList(vertices + 1);
 
-	cout << "Enter the Edges V1 -> V2, of weight W\n";
+	cout << "Вводите данные в следующем формате: \n"
+		<< "Начальная вершина - нажмите Enter"
+		<< "Конечная вершина - нажмите Enter"
+		<< "Вес ребра - нажмите Enter"
+		<< "Повторите это действие для каждого ребра";
 
 	for (int i = 1; i <= edges; ++i) {
 		cin >> v1 >> v2 >> weight;
@@ -98,14 +102,14 @@ int main()
 		adjacencyList[v1].push_back(make_pair(v2, weight));
 	}
 
-	cout << "\nThe Adjacency List-\n";
+	cout << "\nСписок смежностей:-\n";
 	for (int i = 1; i < adjacencyList.size(); ++i) {
-		cout << "adjacencyList[%d] ", i;
+		cout << "adjacencyList[" << i << "] ";
 
 		list< pair<int, int> >::iterator itr = adjacencyList[i].begin();
 
 		while (itr != adjacencyList[i].end()) {
-			cout << " -> %d(%d)", (*itr).first, (*itr).second;
+			cout << " -> " << (*itr).first << "(" << (*itr).second << ")";
 			++itr;
 		}
 		cout << "\n";
@@ -115,16 +119,16 @@ int main()
 
 	int startVertex;
 
-	cout << "\nEnter a Start Vertex -\n";
+	cout << "\nВведите начальную (первую) вершину -\n";
 	cin >> startVertex;
 
 	int returnValue = bellmanFord(adjacencyList, vertices, startVertex, shortestDistances);
 
 	if (returnValue == -1) {
-		cout << "No Negative Cycles exist in the Graph -\n";
+		cout << "Отрицательных ребер не найдено. -\n";
 	}
 	else {
-		cout << "Negative Cycles exists in the Graph -\n";
+		cout << "На данном графе присутствуют отрицательные ребра. -\n";
 
 		PrintNegativeCycle(shortestDistances, shortestDistances[returnValue].second
 			, returnValue);
@@ -132,7 +136,7 @@ int main()
 		return 0;
 	}
 
-	cout << "\n\nVertex    Shortest Distance to Vertex %d     Parent Vertex-\n", startVertex;
+	cout << "\n\nВершина    Кратчайший путь до вершины %d     Предыдущая вершина-\n", startVertex;
 	for (int i = 1; i <= vertices; ++i) {
 		cout << i << "\t"<< shortestDistances[i].first <<"\t\t\t\t"<<
 			shortestDistances[i].second <<"\n";
