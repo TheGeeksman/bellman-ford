@@ -22,10 +22,6 @@ void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, 
 	}
 }
 
-// Bellman-Ford Algorithm which takes the Adjacency List, starting vertex,
-// and an empty shortestDistances vector as input. It applies the algorithm
-// and keeps filling values into shortestDistances which is a reference
-// parameter. It returns true if there are no negative edges, and vice-versa.
 int bellmanFord(
 	vector< list< pair<int, int> > > adjacencyList,
 	int vertices,
@@ -36,13 +32,11 @@ int bellmanFord(
 	list< pair<int, int> >::iterator traverse;
 	int i, j, k;
 
-	// Initialisation
 	for (i = 0; i <= vertices; ++i) {
 		shortestDistances[i].first = INT_MAX;
 		shortestDistances[i].second = -1;
 	}
 
-	// Setting distance to source = 0
 	shortestDistances[startVertex].first = 0;
 	shortestDistances[startVertex].second = 0;
 
