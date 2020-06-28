@@ -164,7 +164,7 @@ int main()
 
 	cout << "\n\nVertex    Shortest Distance to Vertex %d     Parent Vertex-\n", startVertex;
 	for (int i = 1; i <= vertices; ++i) {
-		cout << i + "\t" + shortestDistances[i].first "\t\t\t\t" + 
+		cout << i + "\t" + shortestDistances[i].first + "\t\t\t\t" + 
 			shortestDistances[i].second + "\n";
 	}
 
