@@ -10,15 +10,15 @@ using namespace ::std;
 void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex)
 {
 	if (vertex == startVertex) {
-		cout << "%d ", vertex;
+		cout << vertex;
 	}
 	else if (shortestDistances[vertex].second == 0) {
 		PrintNegativeCycle(shortestDistances, startVertex, startVertex);
-		cout << "%d ", vertex;
+		cout << vertex;
 	}
 	else {
 		PrintNegativeCycle(shortestDistances, shortestDistances[vertex].second, startVertex);
-		cout << "%d ", vertex;
+		cout << vertex;
 	}
 }
 
@@ -164,8 +164,8 @@ int main()
 
 	cout << "\n\nVertex    Shortest Distance to Vertex %d     Parent Vertex-\n", startVertex;
 	for (int i = 1; i <= vertices; ++i) {
-		cout << "%d \t  %d \t\t\t\t    %d\n", i, shortestDistances[i].first,
-			shortestDistances[i].second;
+		cout << i + "\t" + shortestDistances[i].first "\t\t\t\t" + 
+			shortestDistances[i].second + "\n";
 	}
 
 	return 0;
