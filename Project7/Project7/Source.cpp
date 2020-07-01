@@ -4,15 +4,12 @@
 #include <list>
 #include <utility>
 #include <iostream>
+#include <string>
 #include "locale.h"
 
-using namespace ::std;
+#include <sstream> 
 
-struct sard {
-	int vertex;
-	struct sard* next;
-	struct sard* prev;
-};
+using namespace ::std;
 
 void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex)//Поиск Негативного цикла
 {
@@ -82,6 +79,8 @@ int bellmanFord(vector< list< pair<int, int> > > adjacencyList,
 
 	return -1;
 }
+
+
 int main()
 {
 
@@ -143,11 +142,6 @@ int main()
 		return 0;
 	}
 
-	/*for (int i = 1; i <= vertices; i++)
-	{
-		if(shortestDistances[i].second != shortestDistances[i-1].second&& shortestDistances[i].first != shortestDistances[i - 1].first)cout <<shortestDistances[i].second << "-";
-
-	}*/
 	cout << vertices;
 
 	cout << "\n\nВершина    Кратчайший путь до вершины       Предыдущая вершина-\n", startVertex;
@@ -155,18 +149,32 @@ int main()
 		cout << i << "\t" << shortestDistances[i].first << "\t\t\t\t" <<
 			shortestDistances[i].second << "\n";
 	}
+
+	string rWay;
 	int i = vertices;
-	sard* way;
-	way = (sard*)std::malloc(sizeof(sard));
 
 	while (i != 1)
 	{
-		way->vertex = i;
-
-		cout << i << "-";
+		rWay.append(to_string(i)).append("-");
 		i = shortestDistances[i].second;
-		if (i == 1)cout << i;
-
+		if (i == 1) rWay.append(to_string(i));
 	}
+
+	// Добавлено после проверки
+	for (int i = rWay.length() - 1; i >= 0; i--) {
+		if (rWay[i] == '-') {
+			for (int j = i + 1; isdigit(rWay[j]); j++) {
+				cout << rWay[j];
+			}
+			cout << " -> ";
+		}
+		if (i == 0) {
+			for (int j = i; isdigit(rWay[j]); j++) {
+				cout << rWay[j];
+			}
+		}
+	}
+
+
 	return 0;
 }

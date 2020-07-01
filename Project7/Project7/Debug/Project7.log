@@ -1,4 +1,4 @@
 ﻿  Source.cpp
-C:\Users\Булат\Documents\bellman-ford\Project7\Project7\Source.cpp(38,12): warning C4101:  k: неиспользованная локальная переменная
-C:\Users\Булат\Documents\bellman-ford\Project7\Project7\Source.cpp(114,20): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Булат\Documents\bellman-ford\Project7\Project7\Source.cpp(35,12): warning C4101:  k: неиспользованная локальная переменная
+C:\Users\Булат\Documents\bellman-ford\Project7\Project7\Source.cpp(112,20): warning C4018:  <: несоответствие типов со знаком и без знака
   Project7.vcxproj -> C:\Users\Булат\Documents\bellman-ford\Project7\Debug\Project7.exe
