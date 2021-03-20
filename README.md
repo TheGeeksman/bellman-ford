@@ -1,2 +1,2 @@
 # bellman-ford
-SARDOR IS MY GOD
+Algorythm for searching shortest way from A to B
