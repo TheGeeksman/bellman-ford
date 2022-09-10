@@ -6,7 +6,6 @@
 #include <iostream>
 
 using namespace ::std;
-
 void PrintNegativeCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex)
 {
 	if (vertex == startVertex) {
